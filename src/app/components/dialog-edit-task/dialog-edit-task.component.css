@@ -1,0 +1,12 @@
+.form-horizontal {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-actions-row {
+    display: flex;
+}
+
+.space-actions {
+    flex: 1 1 auto;
+}

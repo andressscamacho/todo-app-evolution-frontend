@@ -1,0 +1,11 @@
+.space-title-options {
+    flex: 1 1 auto;
+}
+
+::ng-deep .login-background {
+    background-color: white;
+}
+
+.tasks-container {
+    padding: 16px;
+}

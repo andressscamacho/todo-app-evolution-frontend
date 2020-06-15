@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+    <span>Tareas</span>
+    <span class="space-title-options"></span>
+    <button mat-button (click)="openTaskCreateDialog()">
+        <mat-icon>add</mat-icon>
+        <span>New task</span>
+    </button>
+    <app-menu></app-menu>
+</mat-toolbar>
+<div class="tasks-container">
+    <mat-action-list>
+        <div mat-subheader>Pending tasks</div>
+        <mat-list-item *ngFor="let task of pendingTasks | async" (click)="openTaskDetailDialog(task._id)">
+            <mat-icon mat-list-icon>class</mat-icon>
+            <div mat-line>{{ task.title }}</div>
+        </mat-list-item>
+    </mat-action-list>
+    <mat-action-list>
+        <div mat-subheader>Completed tasks</div>
+        <mat-list-item *ngFor="let task of completedTasks | async" (click)="openTaskDetailDialog(task._id)">
+            <mat-icon mat-list-icon>class</mat-icon>
+            <div mat-line>{{ task.title }}</div>
+        </mat-list-item>
+    </mat-action-list>
+</div>

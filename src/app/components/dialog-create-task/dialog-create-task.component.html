@@ -1,0 +1,30 @@
+<h4>Nueva tarea</h4>
+<form class="form-horizontal" [formGroup]="createTaskForm">
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Due date</mat-label>
+        <input matInput [ngxMatDatetimePicker]="picker" formControlName="due_date" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker [enableMeridian]="datetimeEnableMeridian">
+        </ngx-mat-datetime-picker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Priority</mat-label>
+        <mat-select required formControlName="priority_id">
+            <mat-option *ngFor="let priority of priorities | async" [value]="priority._id">{{ priority.name }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="task-actions-row">
+        <button mat-raised-button color="primary" (click)="createTask()">Create</button>
+    </div>
+</form>
